@@ -121,6 +121,7 @@ int main(int argc, char *argv[])
     int buffered_items = 0;
     int buffer_wrap = 0; // wrapped around
 
+    int item_current_count = 0;
     ItemList item_list;
 
     while (running)
@@ -135,6 +136,8 @@ int main(int argc, char *argv[])
         {
             // print buffered json objects to stdout
             OutputItems(item_list);
+
+            item_current_count += buffered_items;
 
             buffered_items = 0;
             buffered_count = GetBufferCount();
@@ -151,6 +154,8 @@ int main(int argc, char *argv[])
             running = false;
         }
     }
+
+    std::cout << "\n" << item_current_count << std::endl;
 
     return 0;
 }
