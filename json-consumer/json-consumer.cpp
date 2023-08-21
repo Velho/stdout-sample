@@ -4,11 +4,13 @@
 
 int main(int argc, char *argv[])
 {
+    std::vector<nlohmann::json> objs{};
     nlohmann::json j;
-    std::cin >> j;
 
-    std::cout << "Count: " << j.size() << std::endl;
-    std::cout << j.dump();
+    while (!std::cin.eof() && std::cin >> j >> std::ws)
+        objs.push_back(j);
+
+    std::cout << "Resulting objects: " << objs.size() << std::endl;
 
     return 0;
 }
