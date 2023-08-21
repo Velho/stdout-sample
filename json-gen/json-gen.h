@@ -3,13 +3,14 @@
 
 #pragma once
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <vector>
 
 #include <nlohmann/json.hpp>
 
-struct Item {
+struct Item
+{
     std::string _name;
     int _value;
     std::vector<float> _fmeas;
@@ -17,12 +18,13 @@ struct Item {
     nlohmann::json Serialize();
 };
 
-struct ItemList {
+struct ItemList
+{
 
     std::vector<Item> _items;
 
-    void AppendItem(Item&& item);
-    void CreateNewItem(std::string&& name, int value, std::vector<float> fmeas);
+    void AppendItem(Item &&item);
+    void CreateNewItem(std::string &&name, int value, std::vector<float> fmeas);
 
     std::size_t Count() const;
 

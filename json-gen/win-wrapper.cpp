@@ -5,5 +5,5 @@
 
 void SystemSleep(unsigned int ms)
 {
-	Sleep(static_cast<DWORD>(ms));
+    Sleep(static_cast<DWORD>(ms));
 }
